@@ -8,7 +8,6 @@ html, body {
   line-height: 1.5;
   width: 100%;
   height: 100%;
-  background-color: #FFEACD;
   color: #333;
   direction: rtl;
 }
@@ -16,15 +15,40 @@ html, body {
 #root {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFEACD;
+}
+
+/* srollbar */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFEACD;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #33333360;
+  border-radius: 5px;
 }
 
 .title, h1, h2, h3, h4, h5, h6 {
   font-family: 'Rubik Dirt', sans-serif;
   font-size: 2rem;
-  line-height: 2em;
+  height: 2em;
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+.text {
+  font-family: Fredoka, sans-serif;
+  white-space: pre;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 80%;
 }
 
 .top-bar {
@@ -36,20 +60,21 @@ html, body {
   box-shadow: #333333a3 0px 4px 5px -2px;
 }
 
+
 .top-bar .text {
-  font-size: 1.2rem;
-  font-family: 'Fredoka', sans-serif;
+  max-width: 800px;
+  height: 2rem;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  max-width: 800px;
-  height: 3rem;
+  font-size: 1.2rem;
+  font-family: 'Fredoka', sans-serif;
 }
 
-.top-bar .letter-options {
+.letters-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -59,24 +84,65 @@ html, body {
   font-family: 'Rubik Dirt', sans-serif;
 }
 
-.top-bar .letter-options .letter {
+.letters-bar .letter {
   font-size: 2rem;
-  line-height: 2em;
+  height: 3rem;
   margin: 0;
   padding: 0;
   cursor: pointer;
 }
 
-.top-bar .letter-options .selected {
+.letters-bar .selected {
   color: #a50d0d;
 }
 
 @media screen and (max-width: 768px) {
-  .top-bar .text {
+  .text {
     font-size: 1rem;
   }
 
-  .top-bar .letter-options .letter {
+  .letters-bar .letter {
     font-size: 1.5rem;
   }
+}
+
+.top-bar +* {
+  height: calc(100% - 8rem);
+}
+
+.lipograms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  flex: 1;
+}
+
+.lipogram {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 2rem;
+  box-shadow: #333333a3 0px 0px 5px 2px;
+  max-width: 600px;
+  height: 100%;
+}
+
+.lipogram .letter {
+  height: 1em;
+  cursor: cursor;
+}
+
+.lipogram .text {
+  padding-left: 0.5rem;
+  text-wrap: pretty;
+}
+
+.lipogram .author {
+  font-size: 0.9rem;
+  font-family: 'Fredoka', sans-serif;
+  text-align: left;
 }
