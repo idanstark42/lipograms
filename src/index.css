@@ -43,6 +43,31 @@ html, body {
   text-align: center;
 }
 
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1rem 10rem 1rem;
+  gap: 1rem;
+}
+
+.button {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  height: 3em;
+  margin: 0;
+  padding: 0.9rem 2rem 1rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  border: #333 1px solid;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
 .text {
   font-family: Fredoka, sans-serif;
   white-space: pre;

@@ -3,8 +3,8 @@ import * as Catalyst from '@idanstark42/catalyst'
 
 import './index.css'
 
-import { load } from './google-sheets-api'
-import { TOPBAR_TEXTS } from './topbar-texts'
+// import { load } from './google-sheets-api'
+import { COMING_SOON } from './topbar-texts'
 
 function LettersBar ({ selected = [], onSelect = () => {} }) {
   const LETTER_OPTIONS = 'אבגדהוזחטיכלמנסעפצקרשת'.split('')
@@ -19,7 +19,7 @@ function TopBar () {
   const [letter, setLetter] = useState('א')
 
   useEffect(() => {
-    setText(TOPBAR_TEXTS[letter])
+    setText(COMING_SOON[letter])
   }, [letter])
 
   return <div className='top-bar'>
@@ -28,34 +28,39 @@ function TopBar () {
   </div>
 }
 
-function Lipogram ({ text = '', author = 'אנונימי' }) {
-  const missingLetters = 'אבגדהוזחטיכלמנסעפצקרשת'.split('').filter(letter => !text.includes(letter))
+// function Lipogram ({ text = '', author = 'אנונימי' }) {
+//   const missingLetters = 'אבגדהוזחטיכלמנסעפצקרשת'.split('').filter(letter => !text.includes(letter))
 
-  return <div className='lipogram'>
-    <div className='text'>{text}</div>
-    <div className='author'>מאת: {author}</div>
-    <LettersBar selected={missingLetters} />
-  </div>
-}
+//   return <div className='lipogram'>
+//     <div className='text'>{text}</div>
+//     <div className='author'>מאת: {author}</div>
+//     <LettersBar selected={missingLetters} />
+//   </div>
+// }
 
 Catalyst.init({
   pages: {
     '/*': function Home () {
-      const [entries, setEntries] = React.useState([])
+      // const [entries, setEntries] = React.useState([])
 
-      useEffect(() => {
-        (async () => {
-          const entries = (await load()).responses
-          setEntries(entries)
-        }) ()
-      })
+      // useEffect(() => {
+        // (async () => {
+          // const entries = (await load()).responses
+          // setEntries(entries)
+        // }) ()
+      // })
       
       return <>
         <h1>ליפוגרמות</h1>
         <TopBar />
-        <div className='lipograms'>
-          {entries.map(entry => <Lipogram text={entry['טקסט']} author={entry['שם']} />)}
+        <div className='button-container'>
+          <a className='button' href='https://forms.gle/AEtYgghFXrVPP4gf8'>
+            שלחו ליפוגרמות כאן
+          </a>
         </div>
+        {/* <div className='lipograms'>
+          {entries.map(entry => <Lipogram text={entry['טקסט']} author={entry['שם']} />)}
+        </div> */}
       </>
     }
   },
