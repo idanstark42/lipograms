@@ -74,7 +74,7 @@ html, body {
   overflow-y: auto;
   overflow-x: hidden;
   height: 80%;
-  text-wrap: pretty;
+  text-wrap: pretty !important;
 }
 
 .top-bar {
@@ -92,7 +92,6 @@ html, body {
   min-height: 2rem;
   margin: 0;
   padding: 0;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
