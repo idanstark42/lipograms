@@ -6,9 +6,9 @@ import './index.css'
 // import { load } from './google-sheets-api'
 import { COMING_SOON } from './topbar-texts'
 
-function LettersBar ({ selected = [], onSelect = () => {} }) {
-  const LETTER_OPTIONS = 'אבגדהוזחטיכלמנסעפצקרשת'.split('')
+const LETTER_OPTIONS = 'אבגדהוזחטיכלמנסעפצקרשת'.split('')
 
+function LettersBar ({ selected = [], onSelect = () => {} }) {
   return <div className='letters-bar'>
     {LETTER_OPTIONS.map(letter => <div className={`letter ${selected.includes(letter) ? 'selected' : ''}`} onClick={() => onSelect(letter)}>{letter}</div>)}
   </div>
@@ -16,7 +16,7 @@ function LettersBar ({ selected = [], onSelect = () => {} }) {
 
 function TopBar () {
   const [text, setText] = useState('')
-  const [letter, setLetter] = useState('א')
+  const [letter, setLetter] = useState(LETTER_OPTIONS[Math.floor(Math.random() * LETTER_OPTIONS.length)])
 
   useEffect(() => {
     setText(COMING_SOON[letter])

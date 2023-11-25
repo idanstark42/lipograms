@@ -74,6 +74,7 @@ html, body {
   overflow-y: auto;
   overflow-x: hidden;
   height: 80%;
+  text-wrap: pretty;
 }
 
 .top-bar {
@@ -88,7 +89,7 @@ html, body {
 
 .top-bar .text {
   max-width: 800px;
-  height: 2rem;
+  min-height: 2rem;
   margin: 0;
   padding: 0;
   display: flex;
@@ -163,7 +164,6 @@ html, body {
 
 .lipogram .text {
   padding-left: 0.5rem;
-  text-wrap: pretty;
 }
 
 .lipogram .author {
